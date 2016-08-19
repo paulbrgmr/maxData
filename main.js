@@ -5,10 +5,6 @@ var completeDate = new Date(),
     inputBtn = $('#calc-input-btn'),
     inputField = $('#calc-input');
 
-completeDate + 10;
-
-console.log(currentDate);
-
 var daysInMonth, maxUsage, data, divided, dividedPerc;
 
 function maxDataUse(month, year, data) {
@@ -26,21 +22,6 @@ function showDataText () {
         $('.progress-bar').css('width', dividedPerc).text(dividedPerc);
     }
 }
-
-var telekom = "http://pass.telekom.de";
-
-// $.ajax({
-//     url:    telekom,
-//     // type:   'POST',
-//     type:   'GET',
-//     data:   $(this).serialize(),
-//     success: function(response){
-//         // $(selectOutput).html(response);
-//         // $form.find("input").val("");
-//         // console.log(response);
-//         console.log(response);
-//     }
-// });
 
 $(function () {
     inputBtn.on('click', function () {

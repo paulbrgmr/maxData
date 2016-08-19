@@ -18,7 +18,7 @@ function showDataText () {
     divided = maxUsage / data * 100;
     dividedPerc = divided.toFixed(2) + '%';
     if (maxUsage && data != '') {
-        $('.max-usage').text('Inkl. heute dürftest du max. ' + maxUsage.toFixed(2) + 'GB von ' + data + 'GB verbraucht haben.');
+        $('.max-usage').text('Inklusive heute dürftest du max. ' + maxUsage.toFixed(2) + 'GB von ' + data + 'GB verbraucht haben.');
         $('.progress-bar').css('width', dividedPerc).text(dividedPerc);
     }
 }

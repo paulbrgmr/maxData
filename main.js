@@ -2,10 +2,10 @@ var completeDate = new Date(),
     currentMonth = completeDate.getMonth() + 1,
     currentYear = completeDate.getFullYear(),
     currentDate = completeDate.getDate(),
-    inputBtn = $('#calc-input-btn'),
-    inputField = $('#calc-input');
+    inputBtn = document.querySelector('#calc-input-btn'),
+    inputField = document.querySelector('#calc-input');
 
-var daysInMonth, maxUsage, data, divided, dividedPerc;
+var daysInMonth, maxUsage, data, divided, dividedPerc, dataSelectVal;
 
 function maxDataUse(month, year, data) {
     daysInMonth = new Date(year, month, 0).getDate();
@@ -13,21 +13,29 @@ function maxDataUse(month, year, data) {
 }
 
 function showDataText () {
-    data = parseInt(inputField.val());
+    data = parseInt(inputField.value);
     maxDataUse(currentMonth, currentYear, data);
     divided = maxUsage / data * 100;
     dividedPerc = divided.toFixed(2) + '%';
+    dataSelectVal = document.querySelector('#data-size').value;
     if (maxUsage && data != '') {
-        $('.max-usage').text('Inklusive heute dürftest du maximal ' + maxUsage.toFixed(2) + 'GB von ' + data + 'GB verbraucht haben.');
-        $('.progress-bar').css('width', dividedPerc).text(dividedPerc);
+        var progressBar = document.querySelector('.progress-bar');
+        document.querySelector('.max-usage').innerHTML = 
+        'Inklusive heute dürftest du maximal ' + maxUsage.toFixed(2) + ' ' + dataSelectVal + ' von ' + data + ' ' + dataSelectVal + ' verbraucht haben.';
+        progressBar.style.width = dividedPerc;
+        progressBar.innerHTML = dividedPerc;
+        document.cookie = "userData=" + parseInt(inputField.value); + "; path=/";
     }
 }
 
-$(function () {
-    inputBtn.on('click', function () {
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.cookie) {
+        inputField.value = document.cookie.split('=')[1];
+    }
+    inputBtn.addEventListener('click', function () {
         showDataText();
     });
-    $('body').keyup( function(e) {
+    document.querySelector('body').addEventListener('keyup', function(e) {
         var code = e.which;
         if(code==13) {
             showDataText();

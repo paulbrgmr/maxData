@@ -9,6 +9,8 @@
         <!-- CSS -->
         <!-- <link href="" rel="stylesheet"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="style.css">
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,12 +23,20 @@
         <div class="container">
             <h1 class="text-center">Maximaler Datenverbrauch</h1>
             <div class="row">
-                <div class="col-xs-12 col-md-offset-3 col-md-6">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Dein monatliches Datenvolumen" id="calc-input">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="calc-input-btn">Berechnen!</button>
-                        </span>
+                <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6">
+                    <div class="row wrapper">
+                        <div class="col-xs-12 col-sm-7">
+                            <input type="text" class="form-control" placeholder="Dein monatliches Datenvolumen" id="calc-input">
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <select class="form-control" id="data-size">
+                                <option selected>GB</option>
+                                <option>MB</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <button class="btn btn-default btn-block" type="button" id="calc-input-btn">Berechnen!</button>
+                        </div>
                     </div>
                     <p class="max-usage"></p>
                     <div class="progress">
@@ -38,9 +48,10 @@
             </div>
         </div>
         <footer class="footer">
-            <p class="text-center text-muted"><a href="https://github.com/paulbrgmr/maxData/" target="_blank" title="Github maxData">Github maxData</a></p>
+            <div class="container">
+                <p class="text-center text-muted"><a href="https://github.com/paulbrgmr/maxData/" target="_blank" title="Github maxData">Github maxData</a></p>
+            </div>
         </footer>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="main.js"></script>
+        <script src="main.min.js"></script>
     </body>
 </html>
